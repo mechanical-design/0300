@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Comments</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #333;
+      text-align: center;
+    }
+    .feedback-box {
+      margin-top: 20px;
+    }
+    .label {
+      font-weight: bold;
+      color: #555;
+    }
+    .comments {
+      background: #f9f9f9;
+      padding: 10px;
+      border-left: 4px solid #4CAF50;
+      line-height: 1.6;
+    }
+    .no-feedback {
+      color: #888;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Comments</h1>
+    <div class="feedback-box">
+      <p><span class="label">Student ID:</span> <span id="studentId"></span></p>
+      <p><span class="label">Panel 1 Comments:</span></p>
+      <div class="comments" id="comments"></div>
+    </div>
+  </div>
+
+  <script>
+    // Get URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const studentId = urlParams.get('studentId') || 'Unknown';
+    const comments = urlParams.get('comments') || 'No feedback found. Check your Student ID.';
+
+    // Populate the page
+    document.getElementById('studentId').innerText = studentId;
+    document.getElementById('comments').innerHTML = comments;
+  </script>
+</body>
+</html>
